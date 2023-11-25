@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .flashcard {
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .flashcard:hover {
+            transform: scale(1.1);
+        }
+        .flashcard-content {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+    <title>Flashcards</title>
+</head>
+<body>
+    <div class="flashcard" onclick="flipCard(this)">
+        <div class="flashcard-content">
+            <div id="frontContent">Front of the card</div>
+            <div id="backContent" style="display: none;">Back of the card</div>
+        </div>
+    </div>
+
+    <script>
+        function flipCard(card) {
+            const frontContent = card.querySelector('#frontContent');
+            const backContent = card.querySelector('#backContent');
+
+            if (frontContent.style.display === 'none') {
+                frontContent.style.display = 'block';
+                backContent.style.display = 'none';
+            } else {
+                frontContent.style.display = 'none';
+                backContent.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
